@@ -1,0 +1,9 @@
+.header{
+  grid-area: head;
+  background-color: coral;
+  justify-items: left;
+}
+
+.header img{
+  width: 100px;
+}
