@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/react_social/static/css/main.2cce8147.chunk.css",
-    "main.js": "/react_social/static/js/main.8fc4a023.chunk.js",
-    "main.js.map": "/react_social/static/js/main.8fc4a023.chunk.js.map",
+    "main.css": "/react_social/static/css/main.892d6447.chunk.css",
+    "main.js": "/react_social/static/js/main.a9edad1b.chunk.js",
+    "main.js.map": "/react_social/static/js/main.a9edad1b.chunk.js.map",
     "runtime~main.js": "/react_social/static/js/runtime~main.ee5cd0ec.js",
     "runtime~main.js.map": "/react_social/static/js/runtime~main.ee5cd0ec.js.map",
-    "static/js/2.b35ab402.chunk.js": "/react_social/static/js/2.b35ab402.chunk.js",
-    "static/js/2.b35ab402.chunk.js.map": "/react_social/static/js/2.b35ab402.chunk.js.map",
+    "static/js/2.d05d2293.chunk.js": "/react_social/static/js/2.d05d2293.chunk.js",
+    "static/js/2.d05d2293.chunk.js.map": "/react_social/static/js/2.d05d2293.chunk.js.map",
     "index.html": "/react_social/index.html",
-    "precache-manifest.5c294fd33bb33628aac69e9bd42bbf4b.js": "/react_social/precache-manifest.5c294fd33bb33628aac69e9bd42bbf4b.js",
+    "precache-manifest.a4dbbab24d7b4c06b4b6186a0ea04101.js": "/react_social/precache-manifest.a4dbbab24d7b4c06b4b6186a0ea04101.js",
     "service-worker.js": "/react_social/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/react_social/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/react_social/static/media/logo.5d5d9eef.svg"
+    "static/css/main.892d6447.chunk.css.map": "/react_social/static/css/main.892d6447.chunk.css.map",
+    "static/media/empty.png": "/react_social/static/media/empty.716713e3.png",
+    "static/media/fetching.svg": "/react_social/static/media/fetching.ba7bfbe7.svg",
+    "static/media/jew.png": "/react_social/static/media/jew.a009fd1f.png",
+    "static/media/jules.png": "/react_social/static/media/jules.934d77d6.png",
+    "static/media/lida.png": "/react_social/static/media/lida.9d15dc63.png",
+    "static/media/nigga.png": "/react_social/static/media/nigga.65cf915e.png",
+    "static/media/slava.png": "/react_social/static/media/slava.0620e5aa.png",
+    "static/media/u21.png": "/react_social/static/media/u21.4d2a33ea.png"
   }
 }
