@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e3a44c6157398ef606e909179990a6e4",
+    "revision": "6d857f4d7318d91a5a74c14650bb28e1",
     "url": "/react_social/index.html"
   },
   {
-    "revision": "27c21fa84ff98ca03ab7",
-    "url": "/react_social/static/css/main.892d6447.chunk.css"
+    "revision": "d727625da46f24230ed7",
+    "url": "/react_social/static/css/main.5c57fb55.chunk.css"
   },
   {
-    "revision": "cd3b707ac2ff187279d8",
-    "url": "/react_social/static/js/2.d05d2293.chunk.js"
+    "revision": "674a32f8ef5fbabc4b48",
+    "url": "/react_social/static/js/2.5598eb4b.chunk.js"
   },
   {
-    "revision": "27c21fa84ff98ca03ab7",
-    "url": "/react_social/static/js/main.a9edad1b.chunk.js"
+    "revision": "d727625da46f24230ed7",
+    "url": "/react_social/static/js/main.cc31436d.chunk.js"
   },
   {
     "revision": "5fa2779c58e8acc94e7d",
     "url": "/react_social/static/js/runtime~main.ee5cd0ec.js"
+  },
+  {
+    "revision": "e68be7591a02b22b307a22c5a1f9923a",
+    "url": "/react_social/static/media/beach.e68be759.jpg"
   },
   {
     "revision": "716713e33b7ca587482eac1e135a7e11",
