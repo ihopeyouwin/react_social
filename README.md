@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To make ajax requests available you have to install and turn on "Allow CORS: Access-Control-Allow-Origin" extension (firefox and chrome)
+
+link to gh-pages  [link](https://ihopeyouwin.github.io/react_social/)
+
+the whole project is not finished yet...  coding in process
 
 ## Available Scripts
 

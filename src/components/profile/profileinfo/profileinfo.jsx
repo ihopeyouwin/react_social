@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './profileinfo.module.css';
-
+import bigphoto from './../../../assets/beach.jpg';
 
 const Profileinfo = () =>{
     return(
         <div>
-            <img src='http://www.otdyh-vko.kz/images/defaults/beach.jpg' alt='mydick'/>
+            <img src={bigphoto} alt='bigphoto'/>
             <div className={s.descblock}>ava+desc</div>
         </div>
     )

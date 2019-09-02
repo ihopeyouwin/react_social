@@ -14,10 +14,10 @@ let initialState = {
         {id: 2, message: 'yo cmon'},
         {id: 3, message: 'yo hows it going'},
         {id: 4, message: 'yeaks'},
-        {id: 5, message: 'dick sock'},
+        {id: 5, message: 'your enemy is farming, while you sleep'},
         {id: 6, message: 'go hots'},
     ],
-    newMsgBody: 'why so serious'
+    newMsgBody: ''
 };
 
 const messagesReducer = (state = initialState, action) => {

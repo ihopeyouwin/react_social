@@ -5,12 +5,12 @@ let initialState = {
     posts: [
         {id: 1, message: 'hi, whatsup?', likes: 14},
         {id: 2, message: 'yo how\'s it going', likes: 134},
-        {id: 3, message: 'hots 2200 ml', likes: 245},
+        {id: 3, message: 'hots 3200 ml', likes: 245},
         {id: 4, message: 'top 10 falstad eu? huh', likes: 11},
-        {id: 5, message: 'still dick sock', likes: 29},
-        {id: 6, message: 'swipe arthas', likes: 900}
+        {id: 5, message: 'still cant beat sc2 insane?', likes: 29},
+        {id: 6, message: 'thats reducer initial state', likes: 900}
     ],
-    newPostText: 'why so serious'
+    newPostText: ''
 };
 
 const profileReducer = (state = initialState, action) => {
