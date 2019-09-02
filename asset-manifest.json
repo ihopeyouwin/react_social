@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react_social/static/css/main.2cce8147.chunk.css",
+    "main.js": "/react_social/static/js/main.8fc4a023.chunk.js",
+    "main.js.map": "/react_social/static/js/main.8fc4a023.chunk.js.map",
+    "runtime~main.js": "/react_social/static/js/runtime~main.ee5cd0ec.js",
+    "runtime~main.js.map": "/react_social/static/js/runtime~main.ee5cd0ec.js.map",
+    "static/js/2.b35ab402.chunk.js": "/react_social/static/js/2.b35ab402.chunk.js",
+    "static/js/2.b35ab402.chunk.js.map": "/react_social/static/js/2.b35ab402.chunk.js.map",
+    "index.html": "/react_social/index.html",
+    "precache-manifest.5c294fd33bb33628aac69e9bd42bbf4b.js": "/react_social/precache-manifest.5c294fd33bb33628aac69e9bd42bbf4b.js",
+    "service-worker.js": "/react_social/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/react_social/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/react_social/static/media/logo.5d5d9eef.svg"
+  }
+}
