@@ -9,8 +9,9 @@
 }
 .App-content{
   grid-area: cont;
-  background-color: rgb(160, 166, 248);
+  background-color: rgb(192, 223, 248);
   display:grid;
+  border-radius: 14px 1px 1px 14px;
 }
 .App-content img{
   width: 900px;

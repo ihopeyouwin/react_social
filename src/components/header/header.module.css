@@ -1,6 +1,6 @@
 .header{
   grid-area: head;
-  background-color: coral;
+  background-color: #a3bfbe;
   justify-items: left;
 }
 

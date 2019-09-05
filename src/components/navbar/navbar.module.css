@@ -1,17 +1,18 @@
 
 .nav {
     grid-area: nave;
-    background-color: rgb(218, 194, 186);
+    background-color: rgb(34, 141, 201);
     padding: 20px;
+    border-radius: 2px 14px 14px 2px;
 }
 
 .item a {
-    color: rgb(165, 41, 41);
+    color: white;
     text-decoration: none;
 }
 
 .item a.active {
-    color: rgb(128, 33, 165);
+    color: rgb(20, 22, 45);
 }
 
 .frwrap {
