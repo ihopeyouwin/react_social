@@ -4,15 +4,14 @@ import ava from './assets/empty.png'
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
 
-
 let Users = (props) => {
-    //let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
+    let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
     let pages = [];
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i < pagesCount; i++) {
         pages.push(i);
     }
     return (
-        <div>
+        <div className={s.container}>
             <div className={s.pages}>
                 {pages.map(page => {
                     return <span onClick={(e) => {
@@ -31,7 +30,8 @@ let Users = (props) => {
                         </div>
                         <div>
                             {u.follow
-                                ? <button onClick={() => {
+                                ? <button disabled={props.followProgress.some(id => id === u.id)} onClick={() => {
+                                    props.toggleFollowProgress(true, u.id);
                                     axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                                         {
                                             withCredentials: true,
@@ -43,9 +43,11 @@ let Users = (props) => {
                                             if (response.data.resultCode === 0) {
                                                 props.tounfollow(u.id);
                                             }
+                                            props.toggleFollowProgress(false, u.id);
                                         });
                                 }}>Unfollow</button>
-                                : <button onClick={() => {
+                                : <button disabled={props.followProgress.some(id => id === u.id)}  onClick={() => {
+                                    props.toggleFollowProgress(true, u.id);
                                     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
                                         {
                                             withCredentials: true,
@@ -57,6 +59,7 @@ let Users = (props) => {
                                             if (response.data.resultCode === 0) {
                                                 props.tofollow(u.id);
                                             }
+                                            props.toggleFollowProgress(false, u.id);
                                         });
                                 }}>Follow</button>}
                         </div>
