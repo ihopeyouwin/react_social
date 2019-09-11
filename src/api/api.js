@@ -12,10 +12,12 @@ export const usersAPI = {
             return response.data
         });
     },
-    startFollow(id){
-        return instance.delete(`follow/${id}`)
+    startFollow(userId){
+        return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+    },
+    stopFollow(userId){
+        return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
     }
-
 };
 
 

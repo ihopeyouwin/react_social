@@ -2,7 +2,7 @@ import React from 'react';
 import s from './users.module.css';
 import ava from './assets/empty.png'
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
+import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
@@ -32,13 +32,7 @@ let Users = (props) => {
                             {u.follow
                                 ? <button disabled={props.followProgress.some(id => id === u.id)} onClick={() => {
                                     props.toggleFollowProgress(true, u.id);
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                                        {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY": "e7e2f0ca-1756-49ac-a075-b19375687c40"
-                                            }
-                                        })
+                                    usersAPI.stopFollow(u.id)
                                         .then(response => {
                                             if (response.data.resultCode === 0) {
                                                 props.tounfollow(u.id);
@@ -46,15 +40,9 @@ let Users = (props) => {
                                             props.toggleFollowProgress(false, u.id);
                                         });
                                 }}>Unfollow</button>
-                                : <button disabled={props.followProgress.some(id => id === u.id)}  onClick={() => {
+                                : <button disabled={props.followProgress.some(id => id === u.id)} onClick={() => {
                                     props.toggleFollowProgress(true, u.id);
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
-                                        {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY": "e7e2f0ca-1756-49ac-a075-b19375687c40"
-                                            }
-                                        })
+                                    usersAPI.startFollow(u.id)
                                         .then(response => {
                                             if (response.data.resultCode === 0) {
                                                 props.tofollow(u.id);
