@@ -8,6 +8,7 @@ import NavbarContainer from "./components/navbar/navbarContainer";
 import UsersContainer from "./components/users/usersContainer";
 import ProfileContainer from "./components/profile/profileContainer";
 import HeaderContainer from "./components/header/headerContainer";
+import Login from "./components/login/login";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/users' render={() => <UsersContainer />}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
+                    <Route path='/login' render={() => <Login/>}/>
                 </div>
             </div>
         </BrowserRouter>

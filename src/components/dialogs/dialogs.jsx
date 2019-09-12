@@ -2,6 +2,7 @@ import React from 'react';
 import s from './dialogs.module.css';
 import Message from "./message/message";
 import Dialogitm from "./dialogitm/dialogitm";
+import {Redirect} from "react-router-dom";
 
 const Dialogs = (props) => {
     let state = props.messagesPage;
@@ -16,6 +17,10 @@ const Dialogs = (props) => {
         let body = evt.target.value;
         props.updateMessageBody(body);
     };
+    if (!props.isAuth) {
+        return <Redirect to={'/login'}  />
+    }
+
     return (
         <div className={s.dialogswrapper}>
             <div className={s.diallist}>
@@ -25,7 +30,9 @@ const Dialogs = (props) => {
                 <div>{msgelts}</div>
                 <div>
                     <textarea value={newMsgBody} onChange={onMsgInput} placeholder="write your message now"/>
-                    <div><button onClick={onSendMsg}>Send</button></div>
+                    <div>
+                        <button onClick={onSendMsg}>Send</button>
+                    </div>
                 </div>
             </div>
         </div>
