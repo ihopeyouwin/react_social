@@ -2,7 +2,6 @@ import React from 'react';
 import s from './users.module.css';
 import ava from './assets/empty.png'
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
@@ -17,7 +16,7 @@ let Users = (props) => {
                     return <span onClick={(e) => {
                         props.onPageChanged(page)
                     }}
-                                 className={props.currentPage === page ? s.selectedpage : undefined}
+                                 className={(props.currentPage === page) ? s.selectedpage : undefined}
                                  key={page}>{page}</span>
                 })}
             </div>
@@ -29,26 +28,12 @@ let Users = (props) => {
                             </NavLink>
                         </div>
                         <div>
-                            {u.follow
+                            {u.followed
                                 ? <button disabled={props.followProgress.some(id => id === u.id)} onClick={() => {
-                                    props.toggleFollowProgress(true, u.id);
-                                    usersAPI.stopFollow(u.id)
-                                        .then(response => {
-                                            if (response.data.resultCode === 0) {
-                                                props.tounfollow(u.id);
-                                            }
-                                            props.toggleFollowProgress(false, u.id);
-                                        });
+                                    props.unfollow(u.id);
                                 }}>Unfollow</button>
                                 : <button disabled={props.followProgress.some(id => id === u.id)} onClick={() => {
-                                    props.toggleFollowProgress(true, u.id);
-                                    usersAPI.startFollow(u.id)
-                                        .then(response => {
-                                            if (response.data.resultCode === 0) {
-                                                props.tofollow(u.id);
-                                            }
-                                            props.toggleFollowProgress(false, u.id);
-                                        });
+                                    props.follow(u.id);
                                 }}>Follow</button>}
                         </div>
                     </span>
