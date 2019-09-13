@@ -8,7 +8,6 @@ import {
     getUsersThunk} from "../../redux/users-reducer";
 import Users from "./users";
 import Preloader from "../common/preloader";
-import {doAuthRedirect} from "../../hoc/doAuthRedirect";
 import {compose} from "redux";
 
 
@@ -49,7 +48,6 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    doAuthRedirect,
     connect(mapStateToProps, {follow, unfollow, setCurrentPage,
         toggleFollowProgress, getUsersThunk})
 )(UsersContainer);
