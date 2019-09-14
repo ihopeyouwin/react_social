@@ -1,4 +1,3 @@
-const UPDATE_NEW_MSG_BODY = 'UPDATE_NEW_MSG_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {
@@ -17,21 +16,14 @@ let initialState = {
         {id: 5, message: 'your enemy is farming, while you sleep'},
         {id: 6, message: 'go hots'},
     ],
-    newMsgBody: ''
 };
 
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MSG_BODY:
-            return {
-                ...state,
-                newMsgBody: action.body
-            };
         case SEND_MESSAGE:
-            let body = state.newMsgBody;
+            let body = action.messageBody;
             return {
                 ...state,
-                newMsgBody: '',
                 msgdata: [...state.msgdata, {id: 7, message: body}]
             };
         default:
@@ -39,7 +31,6 @@ const messagesReducer = (state = initialState, action) => {
     }
 };
 
-export const sendMessageCreator = () => ({type: SEND_MESSAGE});
-export const updateMessageBodyCreator = (newbody) => ({type: UPDATE_NEW_MSG_BODY, body: newbody});
+export const sendMessageCreator = (messageBody) => ({type: SEND_MESSAGE, messageBody});
 
 export default messagesReducer;
