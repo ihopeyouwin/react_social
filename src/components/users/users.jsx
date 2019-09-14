@@ -13,16 +13,17 @@ let Users = (props) => {
         <div className={s.container}>
             <div className={s.pages}>
                 {pages.map(page => {
-                    return <span onClick={(e) => {
-                        props.onPageChanged(page)
-                    }}
-                                 className={(props.currentPage === page) ? s.selectedpage : undefined}
+                    return <span className={(props.currentPage === page) ? s.selectedpage : undefined}
+                                 onClick={(e) => {
+                                     props.onPageChanged(page)
+                                 }}
                                  key={page}>{page}</span>
                 })}
             </div>
-            {props.users.map(u => <div className={s.usertab} key={u.id}>
-                    <span>
-                        <div>
+            {props.users.map(u =>
+                <div className={s.usertab} key={u.id}>
+                    <span className={s.usercell}>
+                        <div >
                             <NavLink to={`/profile/${u.id}`}>
                                 <img src={u.photos.small != null ? u.photos.small : ava} alt="img"/>
                             </NavLink>
@@ -36,18 +37,14 @@ let Users = (props) => {
                                     props.follow(u.id);
                                 }}>Follow</button>}
                         </div>
+                        <div className={s.line}></div>
                     </span>
-                <span>
-                        <span>
-                            <div>{u.name}</div>
-                            <div>{u.status}</div>
-                        </span>
-                        <span>
-                            <div>{"u.location.country"}</div>
-                            <div>{"u.location.city"}</div>
-                        </span>
+                    <span>
+                        <div>{u.name}</div>
+                        <div>{u.status ? `status: ${u.status}` : 'status is empty'}</div>
+                        <div>{`this user personal id: ${u.id}`}</div>
                     </span>
-            </div>)}
+                </div>)}
         </div>
     )
 };

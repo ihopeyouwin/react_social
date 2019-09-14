@@ -14,3 +14,19 @@
     padding-top: 5px;
     padding-left: 15px;
 }
+.line {
+    margin-top: 5px;
+    height: 1px;
+    background-color: #1a4492;
+    width: auto;
+    margin-bottom: 4px;
+    overflow: visible;
+    min-width: 400px;
+}
+.usercell{
+    width: 70px;
+}
+.usertab{
+    display: flex;
+    flex-direction: row;
+}
