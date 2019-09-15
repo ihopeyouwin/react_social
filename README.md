@@ -1,4 +1,6 @@
-To make ajax requests available you have to install and turn on "Allow CORS: Access-Control-Allow-Origin" extension (firefox and chrome)
+if you are guest - to log in use  
+Email: free@samuraijs.com
+Password: free
 
 link to gh-pages  [link](https://ihopeyouwin.github.io/react_social/)
 
