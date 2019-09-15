@@ -5,7 +5,8 @@
 }
 
 .header img{
-  width: 100px;
+  width: 50px;
+  padding-left: 10px;
 }
 .loginBlock{
   float:right;
