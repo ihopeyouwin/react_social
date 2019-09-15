@@ -4,3 +4,17 @@
 .formControl.error span {
     color: lightcoral;
 }
+.formGlobalError{
+    border: #1b6292 2px solid;
+    padding: 5px;
+    color: lightcoral;
+    width: 300px;
+    border-radius: 5px;
+}
+.container{
+    padding-left: 8px;
+}
+.inRow{
+    display: flex;
+    flex-direction: row;
+}

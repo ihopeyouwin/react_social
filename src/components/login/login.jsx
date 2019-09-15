@@ -5,6 +5,7 @@ import {requiredField} from "../../utilities/validator";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
+import s from './../common/forms.module.css'
 
 const Login = (props) => {
     const onSubmit = (formData) => {
@@ -13,9 +14,10 @@ const Login = (props) => {
     if(props.isAuth){
         return <Redirect to={'/profile'}/>
     }
-    return <div>
+    return <div className={s.container}>
         <h1>Login</h1>
         <LoginReduxForm onSubmit={onSubmit}/>
+        <p>you may use  Email: 'free@samuraijs.com' as login <br/> and  Password: 'free'  as password </p>
     </div>
 };
 
@@ -28,9 +30,10 @@ const LoginForm = (props) => {
             <Field placeholder={"password"} name={"password"} type={'password'} component={Input}
                    validate={[requiredField]}/>
         </div>
-        <div>
+        <div className={s.inRow}>
             <Field component={Input} name={"rememberMe"} type={"checkbox"}/>remember me
         </div>
+        {props.error && <div className={s.formGlobalError}>{props.error}</div>}
         <button>Sign in</button>
     </form>
 };
