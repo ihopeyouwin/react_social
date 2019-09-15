@@ -10,15 +10,20 @@ import ProfileContainer from "./components/profile/profileContainer";
 import HeaderContainer from "./components/header/headerContainer";
 import Login from "./components/login/login";
 import {connect} from "react-redux";
-import {getAuthUserData} from "./redux/auth-reducer";
 import {compose} from "redux";
+import {initializeApp} from "./redux/app-reducer";
+import Preloader from "./components/common/preloader";
 
 class App extends Component {
     componentDidMount() {
-        this.props.getAuthUserData();
+        this.props.initializeApp();
     }
 
     render() {
+        if(!this.props.initialized){
+            return <Preloader/>
+        }
+
         return (
             <BrowserRouter>
                 <div className="App">
@@ -37,4 +42,7 @@ class App extends Component {
         );
     }
 }
-export default compose(withRouter, connect(null, {getAuthUserData}))(App);
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized
+});
+export default compose(withRouter, connect(mapStateToProps, {initializeApp}))(App);
