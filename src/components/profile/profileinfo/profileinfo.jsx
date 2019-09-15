@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './profileinfo.module.css';
-import bigphoto from './../../../assets/beach.jpg';
 import Preloader from "../../common/preloader";
 import userPhoto from './../../../assets/emptyuser.png';
 import ProfileStatus from "./profilestatus"
@@ -8,7 +7,6 @@ import ProfileStatus from "./profilestatus"
 const Profileinfo = (props) => {
     if (!props.profile) {
         return <div>
-            <img src={bigphoto} alt='bigphoto'/>
             <Preloader/>
         </div>
     }
