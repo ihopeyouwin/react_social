@@ -1,11 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
-import {
-    follow, unfollow, setCurrentPage, toggleFollowProgress, getUsersThunk
-} from "../../redux/users-reducer";
+import {follow, unfollow, setCurrentPage, toggleFollowProgress, requestUsers} from "../../redux/users-reducer";
 import Users from "./users";
 import Preloader from "../common/preloader";
 import {compose} from "redux";
+import {
+    getCurrentPage, getFetchingStatus, getFollowProgress, getPageSize, getUsersAmount, getUsersSelector
+} from "../../redux/users-selectors";
 
 
 class UsersContainer extends React.Component {
@@ -33,12 +34,12 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.usertabs,
-        pageSize: state.usersPage.pageSize,
-        totalUsers: state.usersPage.totalUsers,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followProgress: state.usersPage.followProgress,
+        users: getUsersSelector(state),
+        pageSize: getPageSize(state),
+        totalUsers: getUsersAmount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getFetchingStatus(state),
+        followProgress: getFollowProgress(state)
     }
 };
 
@@ -46,5 +47,5 @@ let mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps, {
         follow, unfollow, setCurrentPage,
-        toggleFollowProgress, getUsersThunk
+        toggleFollowProgress, getUsersThunk: requestUsers
     }))(UsersContainer);
