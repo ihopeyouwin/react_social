@@ -52,4 +52,6 @@
     border-right: none;
     border-left: none;
 }
-
+input{
+    width: 300px;
+}
