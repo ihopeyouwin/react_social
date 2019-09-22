@@ -16,6 +16,7 @@ let initialState = {
         {id: 5, message: 'your enemy is farming, while you sleep'},
         {id: 6, message: 'go hots'},
     ],
+    messageKey : 7
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -24,7 +25,8 @@ const messagesReducer = (state = initialState, action) => {
             let body = action.messageBody;
             return {
                 ...state,
-                msgdata: [...state.msgdata, {id: 7, message: body}]
+                msgdata: [...state.msgdata, {id: state.messageKey, message: body} ],
+                messageKey: (state.messageKey+1)
             };
         default:
             return state;

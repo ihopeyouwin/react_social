@@ -14,18 +14,19 @@ let initialState = {
         {id: 6, message: 'thats reducer initial state', likes: 900}
     ],
     profile: null,
-    status: undefined
+    status: undefined,
+    postKey: 7
 };
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newpost = {
-                id: 7,
+                id: state.postKey,
                 message: action.newPostBody,
                 likes: 0
             };
-            return {...state, posts: [...state.posts, newpost]};
+            return {...state, posts: [...state.posts, newpost], postKey: (state.postKey+1)};
         case SET_USER_PROFILE:
             return {...state, profile: action.profile};
         case SET_STATUS:
