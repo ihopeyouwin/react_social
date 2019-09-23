@@ -1,10 +1,6 @@
-import {profileAPI} from "../api/api";
+import profileReducer, {addpostActionCreator, deletePost} from "./profile-reducer";
 
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS';
-
-let initialState = {
+let state = {
     posts: [
         {id: 1, message: 'hi, whatsup?', likes: 14},
         {id: 2, message: 'yo how\'s it going', likes: 134},
@@ -18,42 +14,23 @@ let initialState = {
     postKey: 7
 };
 
-const profileReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ADD_POST:
-            let newpost = {
-                id: state.postKey,
-                message: action.newPostBody,
-                likes: 0
-            };
-            return {...state, posts: [...state.posts, newpost], postKey: (state.postKey+1)};
-        case SET_USER_PROFILE:
-            return {...state, profile: action.profile};
-        case SET_STATUS:
-            return {...state, status: action.status};
-        default:
-            return state;
-    }
-};
-
-export const addpostActionCreator = (newPostBody) => ({type: ADD_POST, newPostBody});
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const setStatus = (status) => ({type: SET_STATUS, status});
-export const getUserProfile = (userId) => (dispatch) => {
-    profileAPI.getProfile(userId).then(response => {
-        dispatch(setUserProfile(response.data));
-    });
-};
-export const getStatus = (userId) => (dispatch) => {
-    profileAPI.getStatus(userId).then(response => {
-        dispatch(setStatus(response.data));
-    });
-};
-export const updateStatus = (status) => (dispatch) => {
-    profileAPI.updateStatus(status).then(response => {
-        if (response.data.resultCode === 0) {
-            dispatch(setStatus(status));
-        }
-    });
-};
-export default profileReducer;
+it('new post length should be incremented', () => {
+    let action = addpostActionCreator('good test');
+    let newState = profileReducer(state,action);
+    expect(newState.posts.length).toBe(7);
+});
+it('new post string must be correct', () => {
+    let action = addpostActionCreator('good test');
+    let newState = profileReducer(state,action);
+    expect(newState.posts[6].message).toBe('good test');
+});
+it('after deletion posts length decrements', () => {
+    let action = deletePost(1);
+    let newState = profileReducer(state,action);
+    expect(newState.posts.length).toBe(5);
+});
+it('if id is incorrect, after deletion posts length should never be decremented', () => {
+    let action = deletePost(1);
+    let newState = profileReducer(state,action);
+    expect(newState.posts.length).toBe(5);
+});
