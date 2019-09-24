@@ -3,6 +3,13 @@
 }
 .formControl.error span {
     color: lightcoral;
+    padding-left: 7px;
+}
+.formControl input{
+    width: 300px;
+}
+form div:nth-child(3) input{
+    width: 10px;
 }
 .formGlobalError{
     border: #1b6292 2px solid;
@@ -17,4 +24,5 @@
 .inRow{
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
 }

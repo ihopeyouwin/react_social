@@ -3,13 +3,6 @@
     height: 50px;
     border-radius: 25px;
 }
-.selectedpage{
-    font-weight: bold;
-}
-.pages span{
-    cursor: pointer;
-    margin-right: 10px;
-}
 .container{
     padding-top: 5px;
     padding-left: 15px;
