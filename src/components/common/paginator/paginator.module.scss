@@ -1,0 +1,69 @@
+
+.pageNumber.selectedpage {
+  font-weight: bold;
+
+  border: 1px solid #228dc9;
+}
+
+.pages span {
+  cursor: pointer;
+}
+
+.paginator {
+  margin: 10px;
+  display: flex;
+  flex-flow: row;
+}
+
+.pageNumber {
+  padding: 3px;
+}
+
+.paginator button {
+  position: relative;
+  background: none;
+  color: #178fbf;
+  text-decoration: none;
+  border: 0.2em solid #178fbf;
+  padding: 0.4em 0.6em;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 12%;
+    background: #fdfffd;
+    height: 0.3em;
+    right: 20%;
+    top: -0.21em;
+    transform: skewX(-45deg);
+    -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 12%;
+    background: #9b70da;
+    height: 0.3em;
+    left: 20%;
+    bottom: -0.25em;
+    transform: skewX(45deg);
+    -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &:hover {
+    &::before {
+      right: 80%;
+    }
+
+    &::after {
+      left: 80%;
+    }
+  }
+}
