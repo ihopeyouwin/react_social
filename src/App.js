@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Music from './components/music/music';
 import Settings from './components/settings/settings';
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {HashRouter, Route, withRouter} from "react-router-dom";
 import NavbarContainer from "./components/navbar/navbarContainer";
 import UsersContainer from "./components/users/usersContainer";
 import HeaderContainer from "./components/header/headerContainer";
@@ -21,14 +21,12 @@ class App extends Component {
     componentDidMount() {
         this.props.initializeApp();
     }
-
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className="App">
                     <HeaderContainer/>
                     <NavbarContainer/>
@@ -41,20 +39,19 @@ class App extends Component {
                         <Route path='/login' render={() => <Login/>}/>
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }
-
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 });
 let AppContainer = compose(withRouter, connect(mapStateToProps, {initializeApp}))(App);
 const SocialApp = (props) => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>;
+    </HashRouter>;
 };
 export default SocialApp;
