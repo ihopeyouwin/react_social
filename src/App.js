@@ -21,6 +21,7 @@ class App extends Component {
     componentDidMount() {
         this.props.initializeApp();
     }
+
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
@@ -43,6 +44,7 @@ class App extends Component {
         );
     }
 }
+
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 });
