@@ -68,7 +68,15 @@
 .contact{
     padding-left: 10px;
 }
-.adress{
+.contact a{
+    text-decoration: none;
+    color: black;
+}
+.contact a:hover{
+    color: #248af7;
+    font-weight: 600;
+}
+.address{
     color: #1b59aa;
     font-weight: 600;
 }

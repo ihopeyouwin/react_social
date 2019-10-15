@@ -24,6 +24,9 @@ const Profileinfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
             setEditMode(false);
         })
     };
+    const cancelEditMode = () =>{
+        setEditMode(false);
+    };
     return (
         <div>
             <div className={s.descblock}>
@@ -31,14 +34,16 @@ const Profileinfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
                     <img className={s.avatar} src={profile.photos.large || userPhoto} alt="userPhoto"/>
                     {isOwner && <input type={"file"} onChange={onAvatarChange}/>}
                 </div>
-                {editMode ? <ProfileDataForm initialValues={profile} onSubmit={onSubmit} profile={profile}
-                                             goToEditMode={() => {
-                                                 setEditMode(false)
-                                             }}/>
-                    : <ProfileData goToEditMode={() => {
-                        setEditMode(true)
-                    }} profile={profile}
-                                   status={status} updateStatus={updateStatus} isOwner={isOwner}/>}
+                {editMode
+                    ? <ProfileDataForm initialValues={profile}
+                                       onSubmit={onSubmit}
+                                       profile={profile}
+                                       cancelEditMode={cancelEditMode}/>
+                    : <ProfileData goToEditMode={() => {setEditMode(true)}}
+                                   profile={profile}
+                                   status={status}
+                                   updateStatus={updateStatus}
+                                   isOwner={isOwner}/>}
             </div>
         </div>
     )
@@ -60,7 +65,7 @@ const ProfileData = ({profile, status, updateStatus, isOwner, goToEditMode}) => 
         <div className={s.contacts}>
             <b>Contacts</b>: {Object.keys(profile.contacts).map((key, index) => {
             let element;
-            if (index < 6) {
+            if (index === 0 || (index >= 2 && index !== 7)) {
                 element = <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
             }
             return element;
@@ -71,6 +76,8 @@ const ProfileData = ({profile, status, updateStatus, isOwner, goToEditMode}) => 
 
 
 const Contact = ({contactTitle, contactValue}) => {
-    return <div className={s.contact}><span className={s.adress}>{contactTitle}:</span> {contactValue}</div>
+    return <div className={s.contact}>
+        <span className={s.address}>{contactTitle}:</span> <a href={contactValue}>{contactValue}</a>
+    </div>
 };
 export default Profileinfo;
