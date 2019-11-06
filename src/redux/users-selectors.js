@@ -3,8 +3,11 @@ import {createSelector} from "reselect";
 export const getUsers = (state) => {
     return state.usersPage.usertabs;
 };
-export const getUsersSelector = createSelector(getUsers ,(usertabs) => {
+export const getUsersAll = createSelector(getUsers ,(usertabs) => {
    return  usertabs.filter(u => true);
+});
+export const getUsersVerified = createSelector(getUsers ,(usertabs) => {
+    return  usertabs.filter(u => u.photos.small || u.followed === true);
 });
 export const getPageSize = (state) => {
     return state.usersPage.pageSize;

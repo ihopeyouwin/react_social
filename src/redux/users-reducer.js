@@ -11,11 +11,12 @@ const TOGGLE_FOLLOWING_PROGRESS = 'TOGGLE_FOLLOWING_PROGRESS';
 
 let initialState = {
     usertabs: [],
-    pageSize: 10,
+    pageSize: 100,
     totalUsers: 0,
     currentPage: 1,
     isFetching: false,
     followProgress: [],
+    showVerified: false
 };
 
 const usersReducer = (state = initialState, action) => {
